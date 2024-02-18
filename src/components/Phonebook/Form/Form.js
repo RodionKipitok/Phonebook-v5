@@ -1,6 +1,10 @@
 import React from 'react';
 import '../Form/form.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import { useDispatch } from 'react-redux';
+
+// import { addContact } from 'redux/contactSlice';
+
 import * as yup from 'yup';
 
 const personSchema = yup.object({
@@ -18,22 +22,12 @@ const initialValues = {
   number: '',
 };
 
-export function PhonebookForm({ state, onSubmit }) {
+export function PhonebookForm() {
+  // const dispatch = useDispatch();
   const hendelSubmit = (values, actions) => {
-    const dataContacts = state;
-    const nameInput = values.name;
+    console.log(values);
 
-    const isContact = dataContacts.some(item => {
-      return nameInput.toLowerCase() === item.name.toLowerCase();
-    });
-
-    if (!!isContact) {
-      alert(`${nameInput} is already in contacts`);
-      actions.resetForm();
-    } else {
-      onSubmit(values);
-      actions.resetForm();
-    }
+    // dispatch(addContact(values));
   };
   return (
     <>
