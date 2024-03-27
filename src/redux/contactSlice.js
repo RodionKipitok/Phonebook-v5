@@ -18,7 +18,9 @@ const contactSlice = createSlice({
 
       state.contacts.push(newContact);
     },
-    removeContact(state, action) {},
+    removeContact(state, action) {
+      console.log(action);
+    },
     filterContact(state, action) {},
   },
 });

@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeContact } from '../../../redux/contactSlice';
 import '../Contact/contact.css';
 
 export default function Contacts() {
-  const idTransfer = id => {};
-
+  const dispatch = useDispatch();
   const contacts = useSelector(statu => statu.contact.contacts);
   console.log(contacts);
 
@@ -16,9 +16,9 @@ export default function Contacts() {
             {contact.name} {contact.number}{' '}
             <button
               className="btnContact"
-              // onClick={() => {
-              //   idTransfer(contact.id);
-              // }}
+              onClick={() => {
+                dispatch(removeContact(contact.id));
+              }}
             >
               Delete
             </button>

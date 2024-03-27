@@ -1,9 +1,9 @@
 import React from 'react';
 import '../Form/form.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-// import { addContact } from 'redux/contactSlice';
+import { addContact } from '../../../redux/contactSlice';
 
 import * as yup from 'yup';
 
@@ -23,11 +23,11 @@ const initialValues = {
 };
 
 export function PhonebookForm() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const hendelSubmit = (values, actions) => {
     console.log(values);
 
-    // dispatch(addContact(values));
+    dispatch(addContact(values));
   };
   return (
     <>
